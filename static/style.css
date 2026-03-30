@@ -1,0 +1,36 @@
+.top-bg {
+  background-color: #3a3a3a;
+  text-align: center;
+  /* 🌟 スペルを修正しました：Helvetica Neue, Arial, ProN */
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+}
+
+.top-title {
+  font-size: 80px;
+  margin-top: 80px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* 影を少し強めに */
+}
+
+.select-action {
+  width: 400px;
+  height: 60px;
+  text-align: center;
+  display: block;
+  margin: 20px auto;
+  font-size: 25px; /* 35pxだと大きすぎるかもしれないので少し調整 */
+  padding: 10px 30px;
+  color: #333; /* 文字色は濃いほうが読みやすいです */
+  background-color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 6px 0 #b33000;
+  transition: all 0.1s;
+}
+
+/* ボタンを押した時の動きも追加！ */
+.select-action:active {
+  box-shadow: none;
+  transform: translateY(6px);
+}

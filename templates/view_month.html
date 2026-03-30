@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>月の予定</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=1.1">
+</head>
+<body class="top-bg">
+    <h1 class="top-title">{{ month }}の準備リスト</h1>
+
+    {% for event in events %}
+    <div style="margin-bottom: 70px;">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <span style="color: #ffcc00; font-size: 40px; font-weight: bold; vertical-align: middle;">
+                🚩 {{ event.name }}
+            </span>
+            <span style="background: #ff4757; color: white; padding: 10px 25px; border-radius: 50px; font-size: 20px; margin-left: 20px; display: inline-block; vertical-align: middle; font-weight: bold;">
+                {{ event.assigned }}
+            </span>
+        </div>
+
+        <table border="1" style="color: white; margin: 0 auto; background: rgba(0, 0, 0, 0.6); width: 85%; border-collapse: collapse;">
+            {% for row in event.data %}
+            <tr>
+                {% for item in row %}
+                <td style="padding: 12px; border: 1px solid #777;">{{ item }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endfor %}
+
+    <div style="text-align: center; margin-top: 50px;">
+        <a href="/" class="select-action" style="text-decoration: none; display: inline-block;">TOPへ戻る</a>
+    </div>
+
+    <hr style="margin: 50px 0; border: 0; border-top: 1px solid #777;">
+
+    <form action="/view_month" method="POST" style="text-align: center; margin-bottom: 50px;">
+      <h3 style="color: white;">他の月を確認する</h3>
+      <select name="month_file" class="select-action">
+        <option value="">月を選択してください</option>
+        {% for m in months %}
+          <option value="{{ m }}">{{ m }}</option>
+        {% endfor %}
+      </select> 
+      <button type="submit" class="select-action">表示する</button>
+    </form>
+</body>
+</html>
