@@ -30,7 +30,7 @@ def get_df():
 
 
 # --- 🏠 TOPページ ---
-@app.route("/")
+@app.route("/", methods=["GET","POST"])
 def index():
     df = get_df()
     if df.empty:
